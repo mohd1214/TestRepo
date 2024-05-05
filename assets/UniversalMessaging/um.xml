@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<NirvanaRealm name="umserver" exportDate="2024-04-30+03:00" comment="Realm configuration from umserver" version="10.15" buildInfo="10.15.0.9.566">
+<NirvanaRealm name="umserver" exportDate="2024-05-05+05:30" comment="Realm configuration from umserver" version="10.15" buildInfo="10.15.0.12.700">
+    <ChannelSet>
+        <ChannelEntry>
+            <ChannelAttributesEntry name="/naming/defaultContext" TTL="0" capacity="0" EID="1" jmsEngine="false" mergeEngine="false" type="MIXED_TYPE"/>
+            <StorePropertiesEntry HonorCapacityWhenFull="true" SyncOnEachWrite="false" SyncMaxBatchSize="0" SyncBatchTime="0" PerformAutomaticMaintenance="true" EnableCaching="true" CacheOnReload="true" Priority="4" EnableMulticast="false" MultiFileEventsPerSpindle="50000" StampDictionary="0"/>
+            <ChannelPermissionSet>
+                <ChannelACLEntry listACLEntries="true" modifyACLEntries="true" fullControl="true" getLastEID="true" purgeEvents="true" subscribe="true" publish="true" useNamedSubcription="true" host="localhost" name="dell"/>
+                <ChannelGroupACLEntry listACLEntries="true" modifyACLEntries="true" fullControl="true" getLastEID="true" purgeEvents="true" subscribe="true" publish="true" useNamedSubcription="true" groupname="Everyone"/>
+            </ChannelPermissionSet>
+            <ChannelKeySet>
+                <ChannelKeyEntry keyName="alias" keyDepth="1"/>
+            </ChannelKeySet>
+            <EventsSet>
+                <Event id="0">
+                    <EventAttribSet>
+                        <EventAttrib name="nrvpub.time" type="Long" value="1714462734095"/>
+                        <EventAttrib name="nrvpub.host" type="String" value="localhost"/>
+                        <EventAttrib name="nrvpub.name" type="String" value="dell"/>
+                        <EventAttrib name="JMSDeliveryMode" type="String" value="PERSISTENT"/>
+                        <EventAttrib name="JMSPriority" type="Byte" value="4"/>
+                    </EventAttribSet>
+                    <EventPropSet>
+                        <EventProp name="alias.type" type="Integer" value="1"/>
+                        <EventProp name="alias" type="String" value="q1"/>
+                        <EventProp name="alias.reference.classname" type="String" value="javax.jms.Queue"/>
+                        <EventProp name="alias.reference.factoryclass" type="String" value="com.pcbsys.nirvana.nJMS.QueueFactory"/>
+                        <EventProp name="alias.reference.url" type="String" value=""/>
+                        <EventProp name="alias.stringRefAddr.type" type="String" value="Queue"/>
+                        <EventProp name="alias.stringRefAddr.addr" type="String" value="q1"/>
+                    </EventPropSet>
+                    <EventData>cTE=</EventData>
+                </Event>
+                <Event id="1">
+                    <EventAttribSet>
+                        <EventAttrib name="nrvpub.time" type="Long" value="1714462740155"/>
+                        <EventAttrib name="nrvpub.host" type="String" value="localhost"/>
+                        <EventAttrib name="nrvpub.name" type="String" value="dell"/>
+                        <EventAttrib name="JMSDeliveryMode" type="String" value="PERSISTENT"/>
+                        <EventAttrib name="JMSPriority" type="Byte" value="4"/>
+                    </EventAttribSet>
+                    <EventPropSet>
+                        <EventProp name="alias.type" type="Integer" value="1"/>
+                        <EventProp name="alias" type="String" value="t1"/>
+                        <EventProp name="alias.reference.classname" type="String" value="javax.jms.Topic"/>
+                        <EventProp name="alias.reference.factoryclass" type="String" value="com.pcbsys.nirvana.nJMS.TopicFactory"/>
+                        <EventProp name="alias.reference.url" type="String" value=""/>
+                        <EventProp name="alias.stringRefAddr.type" type="String" value="Topic"/>
+                        <EventProp name="alias.stringRefAddr.addr" type="String" value="t1"/>
+                    </EventPropSet>
+                    <EventData>dDE=</EventData>
+                </Event>
+            </EventsSet>
+        </ChannelEntry>
+        <ChannelEntry>
+            <ChannelAttributesEntry name="t1" TTL="0" capacity="0" EID="0" jmsEngine="true" mergeEngine="false" type="MIXED_TYPE"/>
+            <StorePropertiesEntry HonorCapacityWhenFull="true" SyncOnEachWrite="false" SyncMaxBatchSize="0" SyncBatchTime="0" PerformAutomaticMaintenance="true" EnableCaching="true" CacheOnReload="true" Priority="4" EnableMulticast="false" MultiFileEventsPerSpindle="50000" StampDictionary="0"/>
+            <ChannelPermissionSet>
+                <ChannelACLEntry listACLEntries="true" modifyACLEntries="true" fullControl="true" getLastEID="true" purgeEvents="true" subscribe="true" publish="true" useNamedSubcription="true" host="localhost" name="dell"/>
+                <ChannelGroupACLEntry listACLEntries="false" modifyACLEntries="false" fullControl="false" getLastEID="true" purgeEvents="false" subscribe="true" publish="false" useNamedSubcription="true" groupname="Everyone"/>
+            </ChannelPermissionSet>
+        </ChannelEntry>
+        <ChannelEntry>
+            <ChannelAttributesEntry name="/wm/is/BR1e4d0b82b6b249239d784d473485d62f_J_jRQtEolDEurgAVIwwwADXaZQs__RequestReplyClient" TTL="0" capacity="0" EID="0" jmsEngine="true" mergeEngine="false" type="MIXED_TYPE"/>
+            <StorePropertiesEntry HonorCapacityWhenFull="true" SyncOnEachWrite="false" SyncMaxBatchSize="0" SyncBatchTime="0" PerformAutomaticMaintenance="true" EnableCaching="true" CacheOnReload="true" Priority="4" EnableMulticast="false" MultiFileEventsPerSpindle="50000" StampDictionary="0"/>
+            <ChannelPermissionSet>
+                <ChannelACLEntry listACLEntries="false" modifyACLEntries="false" fullControl="true" getLastEID="false" purgeEvents="false" subscribe="false" publish="false" useNamedSubcription="false" host="*" name="*"/>
+                <ChannelACLEntry listACLEntries="true" modifyACLEntries="true" fullControl="true" getLastEID="true" purgeEvents="true" subscribe="true" publish="true" useNamedSubcription="true" host="localhost" name="root"/>
+                <ChannelGroupACLEntry listACLEntries="false" modifyACLEntries="false" fullControl="false" getLastEID="true" purgeEvents="false" subscribe="true" publish="false" useNamedSubcription="true" groupname="Everyone"/>
+            </ChannelPermissionSet>
+        </ChannelEntry>
+    </ChannelSet>
     <QueueSet>
         <QueueEntry>
             <ChannelAttributesEntry name="q1" TTL="0" capacity="0" EID="0" jmsEngine="false" mergeEngine="false" type="MIXED_TYPE"/>
             <StorePropertiesEntry HonorCapacityWhenFull="true" SyncOnEachWrite="false" SyncMaxBatchSize="0" SyncBatchTime="0" PerformAutomaticMaintenance="true" EnableCaching="true" CacheOnReload="true" Priority="4" EnableMulticast="false" MultiFileEventsPerSpindle="50000" StampDictionary="0"/>
+            <QueuePermissionSet>
+                <QueueACLEntry listACLEntries="true" modifyACLEntries="true" fullControl="true" purge="true" peek="true" push="true" pop="true" host="localhost" name="dell"/>
+                <QueueGroupACLEntry listACLEntries="false" modifyACLEntries="false" fullControl="false" purge="false" peek="true" push="false" pop="false" groupname="Everyone"/>
+            </QueuePermissionSet>
         </QueueEntry>
     </QueueSet>
 </NirvanaRealm>
