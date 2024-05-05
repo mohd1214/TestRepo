@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<NirvanaRealm name="umserver" exportDate="2024-04-30+03:00" comment="Realm configuration from umserver" version="10.15" buildInfo="10.15.0.9.566">
-    <QueueSet>
-        <QueueEntry>
-            <ChannelAttributesEntry name="q1" TTL="0" capacity="0" EID="0" jmsEngine="false" mergeEngine="false" type="MIXED_TYPE"/>
-            <StorePropertiesEntry HonorCapacityWhenFull="true" SyncOnEachWrite="false" SyncMaxBatchSize="0" SyncBatchTime="0" PerformAutomaticMaintenance="true" EnableCaching="true" CacheOnReload="true" Priority="4" EnableMulticast="false" MultiFileEventsPerSpindle="50000" StampDictionary="0"/>
-        </QueueEntry>
-    </QueueSet>
-</NirvanaRealm>
