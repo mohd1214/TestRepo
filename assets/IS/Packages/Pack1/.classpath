@@ -11,6 +11,7 @@
 	<classpathentry kind="var" path="IS_G11N"/>
 	<classpathentry kind="var" path="IS_ICU4J"/>
 	<classpathentry kind="var" path="IS_WSDL4J"/>
+	<classpathentry kind="var" path="IS_JAVAX_XMLSOAP"/>
 	<classpathentry kind="var" path="IS_CORE"/>
 	<classpathentry kind="var" path="IS_EDITOR"/>
 	<classpathentry kind="var" path="IS_UIUTILS"/>
