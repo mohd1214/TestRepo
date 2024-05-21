@@ -22,7 +22,7 @@ pipeline {
     agent {label 'linux'}
 		environment {
         // Define environment variables here
-        SAG_CI_HOME = '/root/IS_deployment'
+        SAG_CI_HOME = '/root/NEW_IS_Deployment/CI_HOME_PROD/IS'
 	}
 
     stages {
