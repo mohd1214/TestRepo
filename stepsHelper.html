@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="descriptionBtn">What is this?</button><br><br>
+    <pre style="display: none;" id="description">
+    This script is used to generate steps array for service workflows.
+    It still requires some JSON as input in order to generate the final JSON.
+    It handles the target ids on its own (in decisions and in steps) but it still requires correct branchIds and targetBranchIds (WFx) to output the correct JSON.
+    Below is a sample JSON input (copy and paste this array in the input below and generate steps to see the result):
+    [
+        {
+            "type": "steps",
+            "branchId": "WF1",
+            "steps": [{ "role": "Test", "label": "Test Label" }, { "role": "Test1", "label": "Test Label 1" }, { "role": "Test2", "label": "Test Label 2" }]
+        },
+        {
+            "type": "decision",
+            "decisionId": 1,
+            "branchId": "WF1",
+            "decisionLabel": "Is HR Required?",
+            "isActive": false,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "branchId": "WF2"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "branchId": "WF3"
+                }
+            ]
+        },
+        {
+            "type": "steps",
+            "branchId": "WF2",
+            "steps": [{ "role": "Test3", "label": "Test Label 3" }, { "role": "Test4", "label": "Test Label 4" }],
+            "targetBranchId": "WF3"
+        },
+        {
+            "type": "end",
+            "branchId": "WF3"
+        }
+    ]
+
+    All steps are generated without any static inboxes selected, after generating the steps remember to add the correct Static Inbox configuration!***
+
+    Rules:
+
+    When steps are followed by a decision (as is in WF1), no 'targetBranchId' is required since the decision will specify the targets in decisionOptions
+    When steps are followed by another core WF (steps type) or an end, 'targetBranchId' is required (as is in WF2=>Wf3)
+    When steps are followed by a decision in the same WF ID, the decision has to be directly after the steps in the array (as is in WF1)
+    
+    Required in decision types: 'decisionId', 'branchId', 'decisionLabel', 'isActive', 'decisionOptions'
+    Required in steps types: 'branchId', 'steps', ('targetBranchId' only when not followed by a decision in the same WFId)
+    Required in end type: 'branchId'
+    </pre>
+    Enter input JSON:<br>
+    <textarea style="width:100%;height:300px" id="inputSteps"> </textarea><br>
+    <button id="stepsGenerate">Generate Steps</button><br><br>
+    Output:<br>
+    <pre id="outputSteps"></pre>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+        document.getElementById("descriptionBtn").addEventListener("click", function () {
+            if (document.getElementById("description").getAttribute("style").includes("block")) {
+                document.getElementById("description").setAttribute("style", "display: none;");
+            } else {
+                document.getElementById("description").setAttribute("style", "display: block;");
+            }
+        });
+        document.getElementById("stepsGenerate").addEventListener("click", function () {
+            try {
+
+
+
+                var step_template = {
+                    "branchId": "WFX",
+                    "name": "SX",
+                    "label": "LABEL",
+                    "type": "manual",
+                    "target": [
+                        {
+                            "id": -1
+                        }
+                    ],
+                    "isSkipable": true,
+                    "isActive": true,
+                    "role": "ROLE",
+                    "staticInbox": [
+                        {
+                            "type": "CUSTOM",
+                            "isSelected": false
+                        },
+                        {
+                            "type": "ST",
+                            "isSelected": false
+                        },
+                        {
+                            "type": "RF",
+                            "isSelected": false,
+                            "fieldID": ""
+                        }
+                    ],
+                    "slaActions": [
+                        {
+                            "label": "Auto Approve",
+                            "id": "approve",
+                            "isSelected": false
+                        },
+                        {
+                            "label": "Auto Reject",
+                            "id": "reject",
+                            "isSelected": false
+                        }
+                    ]
+                }
+                var decision_template = {
+                    "branchId": "WFX",
+                    "name": "SX",
+                    "label": "Label",
+                    "type": "decision",
+                    "level": null,
+                    "isSkipable": false,
+                    "isActive": null,
+                    "role": null,
+                    "decisionOptions": [],
+                    "decisionId": -1
+                }
+
+                var start_template = {
+                    "branchId": "WF1",
+                    "name": "S1",
+                    "label": "Start",
+                    "type": "start",
+                    "level": null,
+                    "target": [
+                        {
+                            "id": 2
+                        }
+                    ],
+                    "isSkipable": false,
+                    "isActive": true,
+                    "role": null
+                }
+
+                var end_template = {
+                    "branchId": "WFX",
+                    "name": "SX",
+                    "label": "End",
+                    "type": "end",
+                    "level": null,
+                    "target": null,
+                    "isSkipable": false,
+                    "isActive": true,
+                    "role": null,
+                    "processType": null
+                }
+                //######################################################################################
+
+                console.log(document.getElementById("inputSteps").value);
+                var wf_desc = JSON.parse(document.getElementById("inputSteps").value);
+
+                final_steps_arr = [start_template]
+                var id = 2;
+                var new_step = null;
+                var wf_id_tracker = {}
+                for (let i = 0; i < wf_desc.length; i++) {
+                    if (wf_desc[i].type == "steps") {
+                        for (let j = 0; j < wf_desc[i].steps.length; j++) {
+                            if (j == 0) {
+                                wf_id_tracker[wf_desc[i].branchId] = id;
+                            }
+                            new_step = structuredClone(step_template);
+                            new_step.branchId = wf_desc[i].branchId;
+                            new_step.name = "S" + id;
+                            id++;
+                            new_step.role = wf_desc[i].steps[j].role;
+                            new_step.label = wf_desc[i].steps[j].label;
+                            if (j + 1 == wf_desc[i].steps.length && wf_desc[i].targetBranchId) {
+                                new_step.target[0].id = wf_desc[i].targetBranchId;
+                            } else {
+                                new_step.target[0].id = id;
+                            }
+                            final_steps_arr.push(structuredClone(new_step));
+                        }
+                    }
+                    if (wf_desc[i].type == "decision") {
+                        if (!wf_id_tracker[wf_desc[i].branchId]) {
+                            wf_id_tracker[wf_desc[i].branchId] = id;
+                        }
+                        new_step = structuredClone(decision_template);
+                        new_step.branchId = wf_desc[i].branchId;
+                        new_step.name = "S" + id;
+                        id++;
+                        new_step.decisionId = wf_desc[i].decisionId;
+                        new_step.label = wf_desc[i].decisionLabel;
+                        new_step.decisionOptions = wf_desc[i].decisionOptions;
+                        new_step.isActive = wf_desc[i].isActive;
+                        final_steps_arr.push(structuredClone(new_step));
+                    }
+                    if (wf_desc[i].type == "end") {
+                        if (!wf_id_tracker[wf_desc[i].branchId]) {
+                            wf_id_tracker[wf_desc[i].branchId] = id;
+                        }
+                        new_step = structuredClone(end_template);
+                        new_step.branchId = wf_desc[i].branchId;
+                        new_step.name = "S" + id;
+                        final_steps_arr.push(structuredClone(new_step));
+                    }
+                }
+
+                // ADD TARGET IDS
+                for (let k = 0; k < final_steps_arr.length; k++) {
+                    if (final_steps_arr[k].type == 'decision') {
+                        for (let l = 0; l < final_steps_arr[k].decisionOptions.length; l++) {
+                            final_steps_arr[k].decisionOptions[l].targetId = wf_id_tracker[final_steps_arr[k].decisionOptions[l].branchId] + "";
+                        }
+                    }
+                    if (final_steps_arr[k].type == 'manual') {
+                        if ((final_steps_arr[k].target[0].id + "").includes("WF"))
+                            final_steps_arr[k].target[0].id = wf_id_tracker[final_steps_arr[k].target[0].id];
+                    }
+                }
+
+                console.log(JSON.stringify(final_steps_arr));
+
+                console.log(wf_id_tracker);
+                var s = document.getElementById("outputSteps");
+                s.innerHTML = JSON.stringify(final_steps_arr, null, "\t").replaceAll('"staticInbox": [','"staticInbox": [ //TODO Configure Static Inbox');
+            } catch (error) {
+                alert(error);
+            }
+        }
+        );
+    </script>
+</body>
+
+</html>

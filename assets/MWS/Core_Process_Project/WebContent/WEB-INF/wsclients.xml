@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsclients>
+<webservice authenticationMethod="-1" isConnectionURL="http://10.111.11.151:5555/ws/SS_Shared_CoreProcess_Services.taskServices:slaHandler_WSD?WSDL" isService="SS_Shared_CoreProcess_Services.taskServices:slaHandler_WSD" name="slaHandler_WSD" package="caf.war.Core_Process_Project.wsclient.ss_shared_coreprocess_services.taskservices.slahandler_wsd" password="{AES}Y5IgMqjfvkgbg7p5VUZztw==" requiresAuth="true" soapLibrary="wss" useNamespaceForPackage="false" username="administrator" wsdlFile="src/caf/war/Core_Process_Project/wsclient/ss_shared_coreprocess_services/taskservices/slahandler_wsd/slaHandler_WSD.wsdl" wsdlURL="http://10.111.11.151:5555/ws/SS_Shared_CoreProcess_Services.taskServices:slaHandler_WSD?WSDL">
+<wsproxy className="caf.war.Core_Process_Project.wsclient.ss_shared_coreprocess_services.taskservices.slahandler_wsd.SS_Shared_CoreProcess_ServicesTaskServicesSlaHandler_WSDStub">
+<wsclient annotated="true" managedBean="SlaHandler" operation="slaHandler"/>
+</wsproxy>
+<generatedfile>caf\war\Core_Process_Project\wsclient\ss_shared_coreprocess_services\taskservices\slahandler_wsd\SS_Shared_CoreProcess_ServicesTaskServicesSlaHandler_WSDStub.java</generatedfile>
+</webservice>
+</wsclients>

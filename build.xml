@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<project name="testBuild" default="buildDeployTest" basedir="." >
+        <!-- project.properties -->
+	<property file="project.properties"/>
+
+        <property name="workspace.dir" location="."/>
+
+        <!-- remap the VCS structure defined in project.properties to have absolute paths -->
+        <property name="isProjectsDir" location="${isPackages}"/>
+        <property name="isTestDir" location="${isTests}"/>
+        <property name="bpmProjectsDir" location="${bpmProjects}"/>
+        <property name="mwsProjectsDir" location="${mwsProjects}"/>
+        <property name="rulesProjectsDir" location="${rulesProjects}"/>
+        <property name="umProjectsDir" location="${umExport}"/>
+        <property name="bpmPackagesToBuild" value="${bpmPackagesToBuild}" />
+        <property name="isPackagesToBuild" value="${isPackagesToBuild}" />
+        <property name="buildOutputDir" value="${workspace.dir}/target/${projectName}/build"/>
+        <property name="repositoryName" value="${projectName}Repo"/>
+        <property name="testPackageNamePattern" value="*_Test"/>
+        <property name="jenkinsReportDir" value="${workspace.dir}/report"/>
+
+        <script language="javascript"> <![CDATA[
+                       
+
+                var echo = testBuild.createTask("echo");
+                var bpmPackagesToBuild = testBuild.getProperty("bpmPackagesToBuild");
+                if (!bpmPackagesToBuild.isEmpty()) {
+                        var bpmProjectsDir = testBuild.getProperty("bpmProjectsDir");
+                        var bpmPackagesSplit = bpmPackagesToBuild.split(",");
+                        var bpmPackagesToBuildFull = "";
+                        for (var i = 0; i < bpmPackagesSplit.length; i++) {
+                                bpmPackagesToBuildFull = bpmPackagesToBuildFull + ";" + bpmProjectsDir + "/" + bpmPackagesSplit[i];
+                        }
+                        testBuild.setProperty("bpmPackagesToBuildFull", bpmPackagesToBuildFull);
+                        echo.setMessage(bpmPackagesToBuildFull);
+                        echo.perform();
+                }
+                var isPackagesToBuild = testBuild.getProperty("isPackagesToBuild");
+                if (!isPackagesToBuild.isEmpty()) {
+                        var isProjectsDir = testBuild.getProperty("isProjectsDir");
+                        var isPackagesToBuildFull = "";
+                        var isPackagesString = ",";
+                        var File = Java.type('java.io.File');
+                        fs = project.createDataType("fileset");
+                        fs.setDir(new File(isProjectsDir));
+                        var isPackagesSplit = isPackagesToBuild.split(",");
+                        for (var j = 0; j < isPackagesSplit.length; j++) {
+                                fs.setIncludes(isPackagesSplit[j]);
+                        }
+                        echoFiles = testBuild.createTask("echo");
+                        echoFiles.setMessage(isPackagesToBuild + "");
+                        echoFiles.perform();
+                        fs.setExcludes(["**\\ns\\**", "**\\config\\**", "**\\code\\**", "**\\pub\\**", "replicate\\**", "replicate", ""]);
+                        ds = fs.getDirectoryScanner(project);
+                        srcFiles = ds.getIncludedFiles();
+                        srcDirs = ds.getIncludedDirectories();
+                        echoFiles = testBuild.createTask("echo");
+                        echoFiles.setMessage(srcDirs.length + "");
+                        echoFiles.perform();
+                        for (i = 0; i < srcDirs.length; i++) {
+                                if(!srcDirs[i].isEmpty()){
+                                        echoFiles = testBuild.createTask("echo");
+                                        echoFiles.setMessage(srcDirs[i]);
+                                        echoFiles.perform();
+                                        isPackagesToBuildFull = isPackagesToBuildFull + ";" + isProjectsDir + "/" + srcDirs[i];
+                                        isPackagesString = isPackagesString + srcDirs[i] + ",";
+                                }
+                        }
+                        testBuild.setProperty("isPackagesToBuildFull", isPackagesToBuildFull);
+                        testBuild.setProperty("isPackagesString", isPackagesString);
+
+                        echo.setMessage(isPackagesToBuildFull);
+                        echo.perform();
+                }
+            ]]> </script>
+        
+	<target name="buildDeployTest" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="buildDeployTest" inheritAll="true"/>
+	</target>
+
+        <target name="build" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true"/>
+	</target>
+        <target name="deploy" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true"/>
+	</target>
+
+        <target name="test" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true"/>
+	</target>
+	
+</project>

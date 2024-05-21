@@ -1,0 +1,545 @@
+{
+    "steps": [
+        {
+            "id": 1202,
+            "branchId": null,
+            "name": "S1",
+            "label": "Start",
+            "type": "start",
+            "level": null,
+            "target": [
+                {
+                    "id": 2
+                }
+            ],
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        },
+        {
+            "id": 1203,
+            "branchId": null,
+            "name": "S2",
+            "label": "Is STC Employee?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "targetId": "4"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "targetId": "3"
+                }
+            ],
+            "decisionId": 1,
+            "processType": null
+        },
+        {
+            "id": 1204,
+            "branchId": "WF1",
+            "name": "S3",
+            "label": "Subsidiary Coordinator",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 7
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "SubsidiaryCoordinator",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": false
+                },
+                {
+                    "type": "ST",
+                    "isSelected": true,
+                    "value": "NAlrabiah@channels.com.sa"
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1205,
+            "branchId": null,
+            "name": "S4",
+            "label": "Is Shuttle Bus?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "targetId": "6"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "targetId": "5"
+                }
+            ],
+            "decisionId": 2,
+            "processType": null
+        },
+        {
+            "id": 1206,
+            "branchId": null,
+            "name": "S5",
+            "label": "Days <= 1?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "targetId": "12"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "targetId": "6"
+                }
+            ],
+            "decisionId": 3,
+            "processType": null
+        },
+        {
+            "id": 1207,
+            "branchId": "WF2",
+            "name": "S6",
+            "label": "Direct Manager",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 7
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "DM",
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1208,
+            "branchId": null,
+            "name": "S7",
+            "label": "Is Shuttle Bus?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "targetId": "8"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "targetId": "9"
+                }
+            ],
+            "decisionId": 4,
+            "processType": null
+        },
+        {
+            "id": 1209,
+            "branchId": "WF3",
+            "name": "S8",
+            "label": "Fleet Director",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 12
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "FleetDirector",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": false
+                },
+                {
+                    "type": "ST",
+                    "isSelected": true,
+                    "value": "smuhaimeed@stc.com.sa"
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1210,
+            "branchId": null,
+            "name": "S9",
+            "label": "Duration",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "<= 3",
+                    "hardcoded": "false",
+                    "targetId": "11"
+                },
+                {
+                    "label": ">= 4 & <= 8",
+                    "hardcoded": "false",
+                    "targetId": "10"
+                },
+                {
+                    "label": ">= 9",
+                    "hardcoded": "false",
+                    "targetId": "8"
+                }
+            ],
+            "decisionId": 5,
+            "processType": null
+        },
+        {
+            "id": 1211,
+            "branchId": "WF4",
+            "name": "S10",
+            "label": "Region Section Manager",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 12
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "RegionSM",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1212,
+            "branchId": "WF5",
+            "name": "S11",
+            "label": "Department Head",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 12
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "DepartmentHead",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1213,
+            "branchId": "WF6",
+            "name": "S12",
+            "label": "Responsible Employee",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 13
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "ResponsibleEmployee",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1214,
+            "branchId": null,
+            "name": "S13",
+            "label": "Is Shuttle Bus?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "label": "Yes",
+                    "hardcoded": "false",
+                    "targetId": "16"
+                },
+                {
+                    "label": "No",
+                    "hardcoded": "false",
+                    "targetId": "14"
+                }
+            ],
+            "decisionId": 6,
+            "processType": null
+        },
+        {
+            "id": 1215,
+            "branchId": "WF7",
+            "name": "S14",
+            "label": "Vehicle Recipient (Requester)",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 15
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "REQUESTER2",
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1216,
+            "branchId": "WF7",
+            "name": "S15",
+            "label": "Responsible Employee (Returns)",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 16
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "ResponsibleEmployee2",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 1217,
+            "branchId": null,
+            "name": "S16",
+            "label": "End",
+            "type": "end",
+            "level": null,
+            "target": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        }
+    ],
+    "linkDataArray": null,
+    "requestOptions": {
+        "sla": {
+            "isEnabled": false,
+            "slaHours": 2,
+            "slaStartDateTypes": [
+                {
+                    "type": "SubmissionDate",
+                    "isSelected": true,
+                    "fieldID": ""
+                },
+                {
+                    "type": "RequestField",
+                    "fieldID": "",
+                    "isSelected": false
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Expire",
+                    "id": "expire",
+                    "isSelected": true
+                }
+            ]
+        }
+    },
+    "workflowSVG": null,
+    "errorDoc": {
+        "status": "1",
+        "errorCode": "0000",
+        "errorMessage": "Success"
+    }
+}

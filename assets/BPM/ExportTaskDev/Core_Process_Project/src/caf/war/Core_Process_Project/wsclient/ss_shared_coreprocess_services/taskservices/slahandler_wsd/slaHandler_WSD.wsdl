@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="slaHandler_WSD" targetNamespace="http://wmssdvwm/SS_Shared_CoreProcess_Services.taskServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://wmssdvwm/SS_Shared_CoreProcess_Services.taskServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://wmssdvwm/SS_Shared_CoreProcess_Services.taskServices" xmlns:tns="http://wmssdvwm/SS_Shared_CoreProcess_Services.taskServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="slaHandler" type="tns:slaHandler"/>
+          <xsd:element name="slaHandlerResponse" type="tns:slaHandlerResponse"/>
+          <xsd:complexType name="slaHandler">
+            <xsd:sequence>
+              <xsd:element name="coreProcessCanonicalDoc" nillable="true" type="tns:coreProcessCanonicalDoc"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="coreProcessCanonicalDoc">
+            <xsd:sequence>
+              <xsd:element name="coreProcessInput" nillable="true" type="tns:coreProcessInput"/>
+              <xsd:element name="processData" nillable="true" type="tns:processData"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="coreProcessInput">
+            <xsd:sequence>
+              <xsd:element name="HeaderFields" nillable="true" type="tns:headerFields"/>
+              <xsd:element name="RequestData" nillable="true" type="tns:requestData"/>
+              <xsd:element name="RequesterData" nillable="true" type="tns:requesterData"/>
+              <xsd:element maxOccurs="unbounded" name="ApprovalStepsDetails" nillable="true" type="tns:approvalStepsDetails"/>
+              <xsd:element maxOccurs="unbounded" name="HistoryApprovalStepsDetails" nillable="true" type="tns:approvalStepsDetails"/>
+              <xsd:element name="TargetStepData" nillable="true" type="tns:targetStepData"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="headerFields">
+            <xsd:sequence>
+              <xsd:element name="requestNumber" nillable="true" type="xsd:string"/>
+              <xsd:element name="parentProcessInstanceId" nillable="true" type="xsd:string"/>
+              <xsd:element name="processInstanceId" nillable="true" type="xsd:string"/>
+              <xsd:element name="parentProcessName" nillable="true" type="xsd:string"/>
+              <xsd:element name="processName" nillable="true" type="xsd:string"/>
+              <xsd:element name="serviceCode" nillable="true" type="xsd:string"/>
+              <xsd:element name="subsidiary" nillable="true" type="xsd:string"/>
+              <xsd:element name="wfId" nillable="true" type="xsd:string"/>
+              <xsd:element name="inboxItemId" nillable="true" type="xsd:string"/>
+              <xsd:element name="addRequester" nillable="true" type="xsd:string"/>
+              <xsd:element name="numberOfResubmits" nillable="true" type="xsd:string"/>
+              <xsd:element name="globalTransactionId" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="requestData">
+            <xsd:sequence>
+              <xsd:element name="requestJSON" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="requesterData">
+            <xsd:sequence>
+              <xsd:element name="requesterEmail" nillable="true" type="xsd:string"/>
+              <xsd:element name="requesterType" nillable="true" type="xsd:string"/>
+              <xsd:element name="requesterRole" nillable="true" type="xsd:string"/>
+              <xsd:element name="requesterDMEmail" nillable="true" type="xsd:string"/>
+              <xsd:element name="requesterDMRole" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="approvalStepsDetails">
+            <xsd:sequence>
+              <xsd:element name="ownerEmail" nillable="true" type="xsd:string"/>
+              <xsd:element name="actorEmail" nillable="true" type="xsd:string"/>
+              <xsd:element name="action" nillable="true" type="xsd:string"/>
+              <xsd:element name="stepName" nillable="true" type="xsd:string"/>
+              <xsd:element name="taskId" nillable="true" type="xsd:string"/>
+              <xsd:element name="requestStepId" nillable="true" type="xsd:string"/>
+              <xsd:element name="wfSteps" nillable="true" type="xsd:string"/>
+              <xsd:element name="wfId" nillable="true" type="xsd:string"/>
+              <xsd:element name="SLA" nillable="true" type="xsd:string"/>
+              <xsd:element name="SLA_checkpoint" nillable="true" type="xsd:string"/>
+              <xsd:element name="SLA_date" nillable="true" type="xsd:dateTime"/>
+              <xsd:element name="stepFields" nillable="true" type="tns:stepFields"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="stepFields">
+            <xsd:sequence>
+              <xsd:element name="stepFieldsJSON" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="targetStepData">
+            <xsd:sequence>
+              <xsd:element name="targetStepName" nillable="true" type="xsd:string"/>
+              <xsd:element name="targetOwnerEmail" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="processData">
+            <xsd:sequence>
+              <xsd:element name="processType" nillable="true" type="xsd:string"/>
+              <xsd:element name="currentStep" nillable="true" type="tns:approvalStepsDetails"/>
+              <xsd:element name="BPMStepDetails" nillable="true" type="tns:BPMStepDetails"/>
+              <xsd:element name="errorDoc" nillable="true" type="tns:ErrorDoc"/>
+              <xsd:element name="isThereNextApprover" nillable="true" type="xsd:string"/>
+              <xsd:element name="isNextApproverMandatoryAndNotFound" nillable="true" type="xsd:string"/>
+              <xsd:element name="isFirstStep" nillable="true" type="xsd:string"/>
+              <xsd:element name="skipTask" nillable="true" type="xsd:string"/>
+              <xsd:element name="isSameWF" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="BPMStepDetails">
+            <xsd:sequence>
+              <xsd:element name="BPMStepName" nillable="true" type="xsd:string"/>
+              <xsd:element name="stepId" nillable="true" type="xsd:string"/>
+              <xsd:element name="stepStatus" nillable="true" type="xsd:string"/>
+              <xsd:element name="wfSteps" nillable="true" type="xsd:string"/>
+              <xsd:element name="retry" nillable="true" type="xsd:string"/>
+              <xsd:element name="stepIteration" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="ErrorDoc">
+            <xsd:sequence>
+              <xsd:element name="status" nillable="true" type="xsd:string"/>
+              <xsd:element name="errorCode" nillable="true" type="xsd:string"/>
+              <xsd:element minOccurs="0" name="errorMessage" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="slaHandlerResponse">
+            <xsd:sequence>
+              <xsd:element name="coreProcessCanonicalDoc" nillable="true" type="tns:coreProcessCanonicalDoc"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="slaHandler_WSD_PortType_slaHandler">
+    <wsdl:part name="parameters" element="tns:slaHandler">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="slaHandler_WSD_PortType_slaHandlerResponse">
+    <wsdl:part name="parameters" element="tns:slaHandlerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="slaHandler_WSD_PortType">
+    <wsdl:operation name="slaHandler">
+      <wsdl:input message="tns:slaHandler_WSD_PortType_slaHandler">
+    </wsdl:input>
+      <wsdl:output message="tns:slaHandler_WSD_PortType_slaHandlerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SS_Shared_CoreProcess_Services_taskServices_slaHandler_WSD_Binder" type="tns:slaHandler_WSD_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="slaHandler">
+      <soap:operation soapAction="SS_Shared_CoreProcess_Services_taskServices_slaHandler_WSD_Binder_slaHandler" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SS_Shared_CoreProcess_Services.taskServices.slaHandler_WSD">
+    <wsdl:port name="SS_Shared_CoreProcess_Services_taskServices_slaHandler_WSD_Port" binding="tns:SS_Shared_CoreProcess_Services_taskServices_slaHandler_WSD_Binder">
+      <soap:address location="http://wmssdvwm:5555/ws/SS_Shared_CoreProcess_Services.taskServices:slaHandler_WSD/SS_Shared_CoreProcess_Services_taskServices_slaHandler_WSD_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

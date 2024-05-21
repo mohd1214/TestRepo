@@ -1,0 +1,103 @@
+{
+    "steps": [
+        {
+            "name": "S1",
+            "label": "Start",
+            "type": "start",
+            "level": null,
+            "target": [
+                {
+                    "id": 2
+                }
+            ],
+            "isSkipable": false,
+            "isActive": true,
+            "role": null
+        },
+        {
+            "branchId": "WF1",
+            "name": "S2",
+            "label": "Voter",
+            "type": "manual",
+            "target": [
+                {
+                    "id": 3
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "Voter",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "isSelected": false
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": true,
+                    "fieldID": "607"
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ]
+        },
+        {
+            "name": "S3",
+            "label": "End",
+            "type": "end",
+            "level": null,
+            "target": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        }
+    ],
+    "linkDataArray": null,
+    "requestOptions": {
+        "sla": {
+            "isEnabled": false,
+            "slaHours": 2,
+            "slaStartDateTypes": [
+                {
+                    "type": "SubmissionDate",
+                    "isSelected": true,
+                    "fieldID": ""
+                },
+                {
+                    "type": "RequestField",
+                    "fieldID": "",
+                    "isSelected": false
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Expire",
+                    "id": "expire",
+                    "isSelected": true
+                }
+            ]
+        }
+    },
+    "workflowSVG": null,
+    "errorDoc": {
+        "status": "1",
+        "errorCode": "0000",
+        "errorMessage": "Success"
+    }
+}
+

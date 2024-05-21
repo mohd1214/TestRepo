@@ -1,0 +1,430 @@
+{
+    "steps": [
+        {
+            "id": 521,
+            "branchId": "WF1",
+            "name": "S1",
+            "label": "Start",
+            "type": "start",
+            "level": "0",
+            "target": [
+                {
+                    "id": 3
+                }
+            ],
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        },
+        {
+            "id": 523,
+            "branchId": "WF1",
+            "name": "S3",
+            "label": "Direct Manager",
+            "type": "manual",
+            "level": "1",
+            "target": [
+                {
+                    "id": 4
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "DM",
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 524,
+            "branchId": "WF1",
+            "name": "S4",
+            "label": "Location Type?",
+            "type": "decision",
+            "level": "2",
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "branchId": "WF4",
+                    "hardcoded": "false",
+                    "label": "Administrative",
+                    "targetId": "5"
+                },
+                {
+                    "branchId": "WF5",
+                    "hardcoded": "false",
+                    "label": "Special",
+                    "targetId": "6"
+                }
+            ],
+            "decisionId": 2,
+            "processType": null
+        },
+        {
+            "id": 525,
+            "branchId": "WF4",
+            "name": "S5",
+            "label": "Photo change?",
+            "type": "decision",
+            "level": "3.2",
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "branchId": "WF9",
+                    "hardcoded": "false",
+                    "label": "Yes",
+                    "targetId": "10"
+                },
+                {
+                    "branchId": "WF10",
+                    "hardcoded": "false",
+                    "label": "No",
+                    "targetId": "11"
+                }
+            ],
+            "decisionId": 4,
+            "processType": null
+        },
+        {
+            "id": 526,
+            "branchId": "WF5",
+            "name": "S6",
+            "label": "Special Site Type?",
+            "type": "decision",
+            "level": "3.1",
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "branchId": "WF6",
+                    "hardcoded": "false",
+                    "label": "Special Building",
+                    "targetId": "7"
+                },
+                {
+                    "branchId": "WF7",
+                    "hardcoded": "false",
+                    "label": "Data Center",
+                    "targetId": "8"
+                },
+                {
+                    "branchId": "WF8",
+                    "hardcoded": "false",
+                    "label": "Exchange",
+                    "targetId": "9"
+                }
+            ],
+            "decisionId": 3,
+            "processType": null
+        },
+        {
+            "id": 527,
+            "branchId": "WF6",
+            "name": "S7",
+            "label": "Special Building",
+            "type": "manual",
+            "level": "4.3",
+            "target": [
+                {
+                    "id": 10
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "SpecialBuilding",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "customDisclaimer": "inbox.mnt.specialbuilding.disclaimer",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldId": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 528,
+            "branchId": "WF7",
+            "name": "S8",
+            "label": "Data Center Manager",
+            "type": "manual",
+            "level": "4.2",
+            "target": [
+                {
+                    "id": 10
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "DataCenterMngr",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "customDisclaimer": "inbox.mnt.datacenter.disclaimer",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldId": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 529,
+            "branchId": "WF8",
+            "name": "S9",
+            "label": "Technical Facility Manager",
+            "type": "manual",
+            "level": "4.1",
+            "target": [
+                {
+                    "id": 10
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "TechFacilityMngr",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "customDisclaimer": "inbox.mnt.techfacility.disclaimer",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldId": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 530,
+            "branchId": "WF9",
+            "name": "S10",
+            "label": "Safety and Security",
+            "type": "manual",
+            "level": "5",
+            "target": [
+                {
+                    "id": 11
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "SafetySec",
+            "staticInbox": [
+                {
+                    "type": "CUSTOM",
+                    "customDisclaimer": "inbox.mnt.safetysec.disclaimer",
+                    "isSelected": true
+                },
+                {
+                    "type": "ST",
+                    "isSelected": false
+                },
+                {
+                    "type": "RF",
+                    "isSelected": false,
+                    "fieldId": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Auto Approve",
+                    "id": "approve",
+                    "isSelected": false
+                },
+                {
+                    "label": "Auto Reject",
+                    "id": "reject",
+                    "isSelected": false
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 531,
+            "branchId": "WF10",
+            "name": "S11",
+            "label": "End",
+            "type": "end",
+            "level": "6",
+            "target": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        }
+    ],
+    "linkDataArray": [
+        {
+            "from": "S1",
+            "to": "S2"
+        },
+        {
+            "from": "S2",
+            "to": "S3",
+            "label": "Man-Power"
+        },
+        {
+            "from": "S2",
+            "to": "S4",
+            "label": "Staff"
+        },
+        {
+            "from": "S3",
+            "to": "S4"
+        },
+        {
+            "from": "S4",
+            "to": "S5",
+            "label": "Administrative"
+        },
+        {
+            "from": "S4",
+            "to": "S6",
+            "label": "Special"
+        },
+        {
+            "from": "S5",
+            "to": "S10",
+            "label": "Yes"
+        },
+        {
+            "from": "S5",
+            "to": "S11",
+            "label": "No"
+        },
+        {
+            "from": "S6",
+            "to": "S7",
+            "label": "Special Admin"
+        },
+        {
+            "from": "S6",
+            "to": "S8",
+            "label": "DC"
+        },
+        {
+            "from": "S6",
+            "to": "S9",
+            "label": "Exchange"
+        },
+        {
+            "from": "S7",
+            "to": "S10"
+        },
+        {
+            "from": "S8",
+            "to": "S10"
+        },
+        {
+            "from": "S9",
+            "to": "S10"
+        },
+        {
+            "from": "S10",
+            "to": "S11"
+        }
+    ],
+    "requestOptions": {
+        "sla": {
+            "isEnabled": false,
+            "slaHours": 1,
+            "slaStartDateTypes": [
+                {
+                    "type": "SubmissionDate",
+                    "isSelected": true
+                },
+                {
+                    "type": "RequestField",
+                    "fieldID": 11,
+                    "isSelected": false
+                }
+            ],
+            "slaActions": [
+                {
+                    "label": "Expire",
+                    "id": "expire",
+                    "isSelected": true
+                }
+            ]
+        }
+    },
+     "errorDoc": {
+        "status": "1",
+        "errorCode": "0000",
+        "errorMessage": "Success"
+    }
+}

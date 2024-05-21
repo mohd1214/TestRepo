@@ -1,0 +1,536 @@
+{
+    "steps": [
+        {
+            "id": 2120,
+            "branchId": null,
+            "name": "S1",
+            "label": "Start",
+            "type": "start",
+            "level": null,
+            "target": [
+                {
+                    "id": 12
+                }
+            ],
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        },
+        {
+            "id": 2121,
+            "branchId": "WF1",
+            "name": "S2",
+            "label": "Direct Manager",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 3
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "DM",
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2122,
+            "branchId": "WF1",
+            "name": "S3",
+            "label": "Director",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 4
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "M",
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2123,
+            "branchId": "WF1",
+            "name": "S4",
+            "label": "General Manager",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 6
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "GM",
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2124,
+            "branchId": "WF2",
+            "name": "S5",
+            "label": "Subsidiary Coordinator",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 6
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "SubsidiaryCoordinator",
+            "staticInbox": [
+                {
+                    "isSelected": true,
+                    "type": "ST",
+                    "value": "NAlrabiah@channels.com.sa"
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2125,
+            "branchId": "WF3",
+            "name": "S6",
+            "label": "Fleet",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 13
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "Fleet",
+            "staticInbox": [
+                {
+                    "isSelected": true,
+                    "type": "ST",
+                    "value": "fahzahrani@stc.com.sa"
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2126,
+            "branchId": "WF4",
+            "name": "S7",
+            "label": "Fleet Department",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 8
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "FleetDepartment",
+            "staticInbox": [
+                {
+                    "isSelected": false,
+                    "type": "ST",
+                    "value": ""
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                },
+                {
+                    "isSelected": true,
+                    "type": "CUSTOM"
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2127,
+            "branchId": "WF4",
+            "name": "S8",
+            "label": "Allocation Committee",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 14
+                }
+            ],
+            "isSkipable": false,
+            "isActive": true,
+            "role": "AllocationCommittee",
+            "staticInbox": [
+                {
+                    "isSelected": true,
+                    "type": "ST",
+                    "value": "vehicleallocation@stc.com.sa"
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2128,
+            "branchId": "WF5",
+            "name": "S9",
+            "label": "Transportation System Admin",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 15
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "TransportationSysAdmin",
+            "staticInbox": [
+                {
+                    "isSelected": true,
+                    "type": "ST",
+                    "value": "asaden@stc.com.sa"
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2129,
+            "branchId": "WF6",
+            "name": "S10",
+            "label": "Fleet Department Final",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 11
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "FleetDepartmentFinal",
+            "staticInbox": [
+                {
+                    "isSelected": false,
+                    "type": "ST",
+                    "value": ""
+                },
+                {
+                    "isSelected": false,
+                    "type": "RF",
+                    "fieldID": ""
+                },
+                {
+                    "isSelected": true,
+                    "type": "CUSTOM"
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2130,
+            "branchId": "WF6",
+            "name": "S11",
+            "label": "Requester",
+            "type": "manual",
+            "level": null,
+            "target": [
+                {
+                    "id": 16
+                }
+            ],
+            "isSkipable": true,
+            "isActive": true,
+            "role": "REQUESTER2",
+            "slaActions": [
+                {
+                    "isSelected": false,
+                    "label": "AutoApprove",
+                    "id": "approve"
+                },
+                {
+                    "isSelected": false,
+                    "label": "AutoReject",
+                    "id": "reject"
+                }
+            ],
+            "processType": null
+        },
+        {
+            "id": 2131,
+            "branchId": null,
+            "name": "S12",
+            "label": "Is STC Employee?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "targetId": "2",
+                    "label": "Yes",
+                    "hardcoded": "false"
+                },
+                {
+                    "targetId": "5",
+                    "label": "No",
+                    "hardcoded": "false"
+                }
+            ],
+            "decisionId": 1,
+            "processType": null
+        },
+        {
+            "id": 2132,
+            "branchId": null,
+            "name": "S13",
+            "label": "Is STC Employee?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "targetId": "7",
+                    "label": "Yes",
+                    "hardcoded": "false"
+                },
+                {
+                    "targetId": "10",
+                    "label": "No",
+                    "hardcoded": "false"
+                }
+            ],
+            "decisionId": 2,
+            "processType": null
+        },
+        {
+            "id": 2133,
+            "branchId": null,
+            "name": "S14",
+            "label": "Car Need Transfer/Withdraw?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "targetId": "9",
+                    "label": "Yes",
+                    "hardcoded": "false"
+                },
+                {
+                    "targetId": "10",
+                    "label": "No",
+                    "hardcoded": "false"
+                }
+            ],
+            "decisionId": 3,
+            "processType": null
+        },
+        {
+            "id": 2134,
+            "branchId": null,
+            "name": "S15",
+            "label": "Car Withdraw?",
+            "type": "decision",
+            "level": null,
+            "isSkipable": false,
+            "isActive": false,
+            "role": null,
+            "decisionOptions": [
+                {
+                    "targetId": "16",
+                    "label": "Yes",
+                    "hardcoded": "false"
+                },
+                {
+                    "targetId": "10",
+                    "label": "No",
+                    "hardcoded": "false"
+                }
+            ],
+            "decisionId": 4,
+            "processType": null
+        },
+        {
+            "id": 2135,
+            "branchId": null,
+            "name": "S16",
+            "label": "End",
+            "type": "end",
+            "level": null,
+            "target": null,
+            "isSkipable": false,
+            "isActive": true,
+            "role": null,
+            "processType": null
+        }
+    ],
+    "linkDataArray": null,
+    "requestOptions": {
+        "sla": {
+            "isEnabled": false,
+            "slaHours": 12,
+            "slaStartDateTypes": [
+                {
+                    "isSelected": true,
+                    "type": "SubmissionDate",
+                    "fieldID": ""
+                },
+                {
+                    "isSelected": false,
+                    "type": "RequestField",
+                    "fieldID": ""
+                }
+            ],
+            "slaActions": [
+                {
+                    "isSelected": true,
+                    "label": "Expire",
+                    "id": "expire"
+                }
+            ]
+        }
+    },
+    "workflowSVG": null,
+    "errorDoc": {
+        "status": "1",
+        "errorCode": "0000",
+        "errorMessage": "Success"
+    }
+}

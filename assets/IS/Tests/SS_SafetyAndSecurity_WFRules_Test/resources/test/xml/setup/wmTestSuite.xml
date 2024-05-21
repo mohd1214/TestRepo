@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="" name="SafetyAndSecurityWFRulesTest">
+    <webMethodsTestCase description="duration=30&#xd;&#xa;maxMonth=20&#xd;&#xa;maxYear=50" name="checkVisitsLimit_ExceededMonth">
+        <mock folder="SS_SafetyAndSecurity_Adapter_SIPort.Interface" name="getVHRRequestCount">
+            <pipeline filename="resources/test/data/getVHRRequestCount_Zero.xml"/>
+        </mock>
+        <mock folder="SS_Shared_Adapter_ConfigMS.Interface" name="getServiceBusinessConfigs">
+            <pipeline filename="resources/test/data/getServiceBusinessConfigs_maxMonth20_maxYear50.xml"/>
+        </mock>
+        <service folder="SS_SafetyAndSecurity_WFRules.VHR.flow" name="checkVisitsLimit">
+            <input>
+                <file filename="resources/test/data/checkVisitsLimit_Input_30.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/test/data/checkVisitsLimit_Output_Yes.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
