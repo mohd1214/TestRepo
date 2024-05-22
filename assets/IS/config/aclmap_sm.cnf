@@ -15,6 +15,7 @@
   <value name="wm.administrator.docTypes">Internal</value>
   <value name="wm.server.quiesce:setQuiesceMode">Administrators</value>
   <value name="wm.server.portAccess">Administrators</value>
+  <value name="Mohd">Internal</value>
   <value name="wm.xslt">Administrators</value>
   <value name="wm.server:getServerNodes">Anonymous</value>
   <value name="wm.server.query:getServerHealth">Administrators</value>
@@ -32,6 +33,7 @@
   <value name="wm.server:login">Anonymous</value>
   <value name="wm.jsonapi.logging:init">Internal</value>
   <value name="wm.server:logout">Anonymous</value>
+  <value name="Mohd:serv1">Anonymous</value>
   <value name="wm.administrator.admin:addAllUsers">Administrators</value>
   <value name="wm.jsonapi.logging">Internal</value>
   <value name="wm.server.flow">Developers</value>
