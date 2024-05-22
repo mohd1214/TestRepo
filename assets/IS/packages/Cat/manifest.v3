@@ -8,11 +8,11 @@
   <null name="shutdown_services"/>
   <null name="replication_services"/>
   <null name="requires"/>
-  <value name="listACL">Anonymous</value>
+  <null name="listACL"/>
   <value name="webappLoad">yes</value>
   <value name="reloadWithDependentPackage">yes</value>
   <null name="build"/>
   <null name="description"/>
-  <value name="created_date">24-04-2024 11:15:49 AST</value>
+  <value name="created_date">22-05-2024 14:24:51 AST</value>
   <null name="extendedProperties"/>
 </Values>
