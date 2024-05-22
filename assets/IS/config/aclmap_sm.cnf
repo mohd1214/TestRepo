@@ -42,6 +42,7 @@
   <value name="wm.administrator.util:getCurrentUser">CentralUsers</value>
   <value name="wm.server.ff:getFFDictionaryDefinition">WmPrivate</value>
   <value name="wm.server.mimetypes">Administrators</value>
+  <value name="Cat:service1">Anonymous</value>
   <value name="wm.server.security.openid:implicitCallback">Anonymous</value>
   <value name="wm.server.tx:start">Administrators</value>
   <value name="wm.server.packages:packageReload">Developers</value>
@@ -226,6 +227,7 @@
   <value name="wm.server.access:aclList">Developers</value>
   <value name="wm.server.dispatcher.adminui">Administrators</value>
   <value name="wm.server.replicator:unregister">Replicators</value>
+  <value name="Cat">Internal</value>
   <value name="wm.server.ldap">Administrators</value>
   <value name="wm.server.packages:packageReloadPartial">Developers</value>
   <value name="wm.server.packages:packageDelete">Developers</value>
