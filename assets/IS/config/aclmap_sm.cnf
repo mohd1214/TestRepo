@@ -34,7 +34,6 @@
   <value name="wm.server:logout">Anonymous</value>
   <value name="wm.administrator.admin:addAllUsers">Administrators</value>
   <value name="wm.jsonapi.logging">Internal</value>
-  <value name="Pack1:service1">Anonymous</value>
   <value name="wm.server.flow">Developers</value>
   <value name="wm.server.remote:retrieve">Default</value>
   <value name="wm.administratorResource.docTypes">Internal</value>
@@ -86,10 +85,10 @@
   <value name="wm.administrator.repo">Internal</value>
   <value name="wm.server.tx:execute">Administrators</value>
   <value name="wm.dev.util">Developers</value>
-  <value name="Test">Internal</value>
   <value name="pub.oauth:refreshAccessToken">Anonymous</value>
   <value name="wm.server.xarecovery">Administrators</value>
   <value name="pub.flatFile.generate:getFFSchemaAsDocument">WmPrivate</value>
+  <value name="Pack1.services:service1">Administrators</value>
   <value name="wm.server.services:getTemplateEncoding">Developers</value>
   <value name="wm.server.ff:init">Developers</value>
   <value name="wm.server.jndi">Administrators</value>
@@ -102,6 +101,7 @@
   <value name="wm.server.query:getSettings">Developers</value>
   <value name="wm.server:ping">Anonymous</value>
   <value name="wm.monitor.config:removeUserPreferences">MonitorUsers</value>
+  <value name="Pack2.services:service1">Administrators</value>
   <value name="wm.prt">Developers</value>
   <value name="wm.monitor.util:configSettings">MonitorAdministrators</value>
   <value name="wm.server.replicator">Administrators</value>
@@ -202,6 +202,7 @@
   <value name="wm.server.net.listeners">Administrators</value>
   <value name="Pack1">Internal</value>
   <value name="wm.server.schedule">Administrators</value>
+  <value name="Pack2">Internal</value>
   <value name="wm.server.quiesce:isDisableQuiescePort">Administrators</value>
   <value name="wm.server:getClusterNodes">Anonymous</value>
   <value name="wm.monitor.config:getServiceFilter">MonitorUsers</value>
