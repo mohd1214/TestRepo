@@ -8,7 +8,7 @@
   <null name="shutdown_services"/>
   <null name="replication_services"/>
   <null name="requires"/>
-  <value name="listACL">Anonymous</value>
+  <null name="listACL"/>
   <value name="webappLoad">yes</value>
   <value name="reloadWithDependentPackage">yes</value>
   <null name="build"/>

@@ -101,6 +101,7 @@
   <value name="wm.server.query:getSettings">Developers</value>
   <value name="wm.server:ping">Anonymous</value>
   <value name="wm.monitor.config:removeUserPreferences">MonitorUsers</value>
+  <value name="Pack2.services:service1">Anonymous</value>
   <value name="wm.prt">Developers</value>
   <value name="wm.monitor.util:configSettings">MonitorAdministrators</value>
   <value name="wm.server.replicator">Administrators</value>

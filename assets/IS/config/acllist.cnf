@@ -120,4 +120,5 @@
   <value name="pub.pollingNotificationUtils:getDBObjects">WmPrivate</value>
   <value name="pub.pollingNotificationUtils:getDBObjectsList">WmPrivate</value>
   <value name="Pack1.services:service1">Anonymous</value>
+  <value name="Pack2.services:service1">Anonymous</value>
 </Values>
