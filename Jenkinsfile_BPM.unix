@@ -22,7 +22,7 @@ pipeline {
     agent {label 'linux'}
 		environment {
         // Define environment variables here
-        SAG_CI_HOME_IS = '/root/BPM_Package_Deployment/CI_HOME_PROD/BPM'
+        SAG_CI_HOME_BPM = '/root/BPM_Package_Deployment/CI_HOME_PROD/BPM'
 		
 	}
 
