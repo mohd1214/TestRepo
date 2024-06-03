@@ -22,20 +22,19 @@ pipeline {
     agent {label 'linux'}
 		environment {
         // Define environment variables here
-        SAG_CI_HOME_IS = '/root/BPM_Package_Deployment/CI_HOME_PROD/IS'
+        SAG_CI_HOME_BPM = '/root/BPM_Package_Deployment/CI_HOME_PROD/BPM'
 		
 	}
 
     stages {
         stage('Build'){
             steps {
-                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME_IS} -DprojectName=${Project_Name} -DisPackagesToBuild=\"${isPackagesToBuild}\" build"
+                sh '${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME_BPM} -DprojectName=${Project_Name} -DbpmPackagesToBuild=\"${bpmPackagesToBuild}\" build'
             }
         }
         stage('Deploy') {
             steps {
-                
-                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME_IS} -DprojectName=${Project_Name} -DdateTime=\"\$(date +'%Y-%m-%d %H:%M%S')\" -DbuildNumber=${env.BUILD_NUMBER} -Dcomment=\"${comment}\" -DisPackagesToBuild=\"${isPackagesToBuild}\" deploy"
+		        sh '${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME_BPM} -DprojectName=${Project_Name} -DdateTime=\"\$(date +'%Y-%m-%d %H:%M%S')\" -DbuildNumber=${env.BUILD_NUMBER} -Dcomment=\"${comment}\" -DbpmPackagesToBuild=\"${bpmPackagesToBuild}\" deploy'
             }
         }
     }
