@@ -8,18 +8,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh """
+                sh "
                     ${env.SAG_HOME}/common/lib/ant/bin/ant \\
                     -DSAGHome=${env.SAG_HOME} \\
                     -DSAG_CI_HOME=${env.SAG_CI_HOME_BPM} \\
                     -DprojectName=${env.JOB_NAME} \\
                     -DbpmPackagesToBuild="${bpmPackagesToBuild}" build
-                """
+                "
             }
         }
         stage('Deploy') {
             steps {
-                sh """
+                sh "
                     ${env.SAG_HOME}/common/lib/ant/bin/ant \\
                     -DSAGHome=${env.SAG_HOME} \\
                     -DSAG_CI_HOME=${env.SAG_CI_HOME_BPM} \\
@@ -28,7 +28,7 @@ pipeline {
                     -DbuildNumber=${env.BUILD_NUMBER} \\
                     -Dcomment="${comment}" \\
                     -DbpmPackagesToBuild="${bpmPackagesToBuild}" deploy
-                """
+                "
             }
         }
     }
