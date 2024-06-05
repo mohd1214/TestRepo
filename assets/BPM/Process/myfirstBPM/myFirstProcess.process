@@ -36,13 +36,13 @@
     uid="P2" useCorrelation="false">
     <documentation/>
     <businessKPIs/>
-    <fontData boldFont="false" italicFont="false"/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
     <poolReference Id="4badb3ce-60d6-4478-a690-93b06169c84c"
       label="Pizza Store" logicalServer="Default" poolName="6"
       stepLock="false" uid="S3" useCorrelation="false" x="134" y="62">
       <documentation/>
       <businessKPIs/>
-      <fontData boldFont="false" italicFont="false"/>
+      <fontData boldFont="false" fontFamily="" italicFont="false"/>
     </poolReference>
     <timeout calendarAlias="" calendarTime="0:0:0"
       dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
@@ -64,7 +64,7 @@
     uid="P7" useCorrelation="false">
     <documentation/>
     <businessKPIs/>
-    <fontData boldFont="false" italicFont="false"/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
     <receiveStep Id="6eec86ea-eefb-47f0-b297-7d2c620e4c94"
       allowsSynchronousReply="false" edaEventQName="" edaSubFilter=""
       edaSubFilterLang="" eventType="START"
@@ -101,6 +101,26 @@
       <extendedProperty name="retries" value="0"/>
       <extendedProperty name="retryInterval" value="60000"/>
     </terminateStep>
+    <gatewayStep Id="3a883d6e-8722-41de-942a-eb9ec9ed2040"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="34"
+      label="Dine In?" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S23"
+      useCorrelation="false" width="34" x="458" y="358">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
     <invokeStep Id="a8ca1fc1-6098-477f-bd1e-e79bc6a8cd53"
       dynamicReferenceProcess="false" externalizeConditions="false"
       height="60" invokeContainer="" invokeId="" invokeLocation=""
@@ -157,26 +177,6 @@
         timeoutStyle="RELATIVE" timeoutType="stepTimeout"
         timeoutValue="0" xpathTimeoutValue=""/>
     </invokeStep>
-    <gatewayStep Id="3a883d6e-8722-41de-942a-eb9ec9ed2040"
-      externalizeConditions="false" gatewayType="EXCLUSIVE" height="34"
-      label="Dine In?" labelHeight="-1" labelWidth="-1"
-      logicalServer="Default" retryCount="0" stepLock="false" uid="S23"
-      useCorrelation="false" width="34" x="458" y="358">
-      <documentation/>
-      <businessKPIs/>
-      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
-        <fontColor blue="0" green="0" red="0"/>
-      </fontData>
-      <timeout calendarAlias="" calendarTime="0:0:0"
-        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
-        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
-        dynamicFieldName="" isCalendarTimeout="false"
-        isStaticTimeout="true" isXPathTimeout="false"
-        pipelineCalendarAlias="" pipelineCalendarDays=""
-        pipelineCalendarHours="" pipelineCalendarMinutes=""
-        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
-        timeoutValue="0" xpathTimeoutValue=""/>
-    </gatewayStep>
     <invokeStep Id="1303ec9c-4c21-4d61-9d33-fb5dd7b2f523"
       dynamicReferenceProcess="false" externalizeConditions="false"
       height="60" invokeContainer="" invokeId="" invokeLocation=""
@@ -236,6 +236,8 @@
       green="0" lineShape="STRAIGHT" red="0" source="S15"
       sourceLocation="238,228" sourceTerminal="BOTTOM" target="S17"
       targetLocation="238,345" targetTerminal="TOP" uid="T18">
+      <bendpoint index="0" location="402,348" weight="0.5"/>
+      <bendpoint index="1" location="402,348" weight="0.5"/>
       <labelLayout blue="0" defaultLocation="false" green="196"
         height="-1" red="255" width="-1" x="0" y="110">
         <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
@@ -296,6 +298,8 @@
       green="0" lineShape="STRAIGHT" red="0" source="S17"
       sourceLocation="285,375" sourceTerminal="RIGHT" target="S23"
       targetLocation="458,375" targetTerminal="LEFT" uid="T32">
+      <bendpoint index="0" location="534,438" weight="0.5"/>
+      <bendpoint index="1" location="534,438" weight="0.5"/>
       <labelLayout blue="0" defaultLocation="true" green="196"
         height="-1" red="255" width="-1" x="-1" y="-1">
         <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
